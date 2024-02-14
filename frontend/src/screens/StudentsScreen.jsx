@@ -18,14 +18,14 @@ const StudentsScreen = () => {
 
   return (
     <>
-        <h1>Students</h1>
-        <Row>
-            {students.map((student)=>(
-                <Col key={student._id} sm={12} md={6} lg={4} ex={3}>
-                    <Student student={student}/>
-                </Col>
-            ))}
-        </Row>
+      <h1 className="my-4">Students</h1>
+      {students.map((student) => (
+      <Row key={student._id} className="mb-4">
+        <Col xs={12}>
+          <Student student={student} />
+        </Col>
+      </Row>
+      ))}
     </>
   )
 }

@@ -20,16 +20,17 @@ const FacultyScreen = () => {
 
   return (
     <>
-        <h1>Faculty</h1>
-        <Row>
-            {faculty.map((faculty)=>(
-                <Col key={faculty._id} sm={12} md={6} lg={4} ex={3}>
-                    <Faculty faculty={faculty}/>
-                </Col>
-            ))}
+        <h1 className="my-4">Faculty</h1>
+        {faculty.map((facultyMember) => (
+        <Row key={facultyMember._id} className="mb-4">
+          <Col xs={12}>
+            <Faculty faculty={facultyMember} />
+          </Col>
         </Row>
+      ))}
     </>
   )
 }
+
 
 export default FacultyScreen
