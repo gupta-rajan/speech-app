@@ -17,7 +17,10 @@ const projectSchema = new mongoose.Schema({
     sponsoredBy: {
         type: String,
         required: true
-    }
+    },
+    principalInvestigator: {
+        type: String,
+    },
 },{
     timestamps:true
 });

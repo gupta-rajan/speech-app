@@ -9,7 +9,7 @@ const Header = () => {
         <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
             <Container>
                 <LinkContainer to='/'>
-                <Navbar.Brand><img src={logo} alt='SITAR' />SITAR</Navbar.Brand>
+                <Navbar.Brand><img src={logo} alt='SITAR' />Speech Image Text and Artificial Intelligence Reasearch (SITAR) Group</Navbar.Brand>
                 </LinkContainer>
                 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

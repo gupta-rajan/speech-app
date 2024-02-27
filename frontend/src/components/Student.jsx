@@ -37,7 +37,7 @@ const Student = ({ student }) => {
         </Col>
         <Col md={8}>
           <Card.Body>
-            <Card.Title as="div">
+            <Card.Title>
               <strong>{student.name}</strong>
             </Card.Title>
             <Card.Text>

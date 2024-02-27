@@ -20,7 +20,7 @@ const FacultyScreen = () => {
 
   return (
     <>
-        <h1 className="my-4">Faculty</h1>
+        <h1 className="my-4 text-center">Faculty</h1>
         {faculty.map((facultyMember) => (
         <Row key={facultyMember._id} className="mb-4">
           <Col xs={12}>

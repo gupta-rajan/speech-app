@@ -29,7 +29,6 @@ const router = createBrowserRouter(
     </Route>
   )
 )
-// to be replaced here also
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
