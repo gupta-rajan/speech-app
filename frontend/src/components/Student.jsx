@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Col, Row, Button } from 'react-bootstrap';
+import { Card, Col, Row} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {FaEnvelope , FaLinkedin, FaGraduationCap } from 'react-icons/fa';
 
@@ -13,30 +13,24 @@ const Student = ({ student }) => {
   return (
     <Card className="my-3 p-3 rounded">
       <Row>
-        <Col md={4} style={{margin:'auto'}}>
-          <div style={{ width: '300px', height: '300px', overflow: 'hidden',margin: 'auto' }}>
-            <Card.Img src={student.image} variant="top" style={{ width: '100%', height: '100%', objectFit: 'cover'}}/>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '10px' }}>
-            <div style={{ marginRight: '20px' }}>
-              <Link to={`mailto:${student.email}`} target="_blank" rel="noopener noreferrer">
-                <FaEnvelope />
+        <Col md={4} xs={12} className="text-center mb-3 mb-md-0 d-flex flex-column align-items-center">
+          <div style={{ maxWidth: '300px', margin: 'auto' }}>
+            <Card.Img src={student.image} variant="top" className="img-fluid" style={{ margin: 'auto' }}/>
+            <div className="mt-3">
+              <Link to={`mailto:${student.email}`} target="_blank" rel="noopener noreferrer" className='mx-2'>
+                <FaEnvelope/>
               </Link>
-            </div>
-            <div style={{ marginRight: '20px' }}>
-              <Link to={student.linkedin} target="_blank" rel="noopener noreferrer">
+              <Link to={student.linkedin} target="_blank" rel="noopener noreferrer" className='mx-2'>
                 <FaLinkedin />
               </Link>
-            </div>
-            <div style={{ marginRight: '20px' }}>
-              <Link to={student.scholarLink} target="_blank" rel="noopener noreferrer">
+              <Link to={student.scholarLink} target="_blank" rel="noopener noreferrer" className='mx-2'>
                 <FaGraduationCap />
               </Link>
             </div>
           </div>
         </Col>
-        <Col md={8}>
-          <Card.Body>
+        <Col md={8} xs={12}>
+          <Card.Body className="d-flex flex-column justify-content-between h-100">
             <Card.Title>
               <strong>{student.name}</strong>
             </Card.Title>
@@ -46,9 +40,11 @@ const Student = ({ student }) => {
             <Card.Text>
               <strong>Position:</strong> {student.position}
             </Card.Text>
-            <Card.Text>
-              <strong>Thesis Title:</strong> {student.thesisTitle}
-            </Card.Text>
+            {student.thesisTitle !=='NA' && (
+              <Card.Text>
+                <strong>Thesis Title:</strong> {student.thesisTitle}
+              </Card.Text>
+            )}
             <Card.Text>
               <strong>Areas of Interest:</strong> {student.areasOfInterest}
             </Card.Text>
@@ -57,9 +53,9 @@ const Student = ({ student }) => {
                 <strong>Description:</strong>{' '}
                 {expanded ? student.description : `${student.description.slice(0, 100)}...`}
                 {student.description.length > 100 && (
-                  <Button variant="link" onClick={toggleDescription}>
+                  <button className="btn btn-link p-0 read-more mb-1"  onClick={toggleDescription}>
                     {expanded ? 'Read less' : 'Read more'}
-                  </Button>
+                  </button>
                 )}
               </Card.Text>
             )}
