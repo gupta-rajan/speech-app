@@ -26,3 +26,22 @@ table th {
 .icon {
   margin-right: 10px;
 }
+
+body,a {
+  color: rgb(1, 1, 39);
+}
+
+custom-color{
+  color: rgb(1, 1, 39);
+}
+
+a:hover {
+  color: rgb(0, 86, 171);
+}
+a.active.dropdown-item {
+  background-color:  rgb(1, 1, 39);
+}
+
+.btn {
+  background-color: (1, 1, 39);
+}
