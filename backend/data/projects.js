@@ -36,5 +36,4 @@ const projectData = [
     // Add more project objects as needed
 ];
   
-  export default projectData;
-  
+export default projectData;

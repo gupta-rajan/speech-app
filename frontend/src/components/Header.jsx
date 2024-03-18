@@ -30,6 +30,12 @@ const Header = () => {
                         <LinkContainer to='/news'>
                             <Nav.Link>NEWS</Nav.Link>
                         </LinkContainer>
+                        <LinkContainer to='/positions'>
+                            <Nav.Link>POSITIONS</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to='/positions'>
+                            <Nav.Link>EVENTS</Nav.Link>
+                        </LinkContainer>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
