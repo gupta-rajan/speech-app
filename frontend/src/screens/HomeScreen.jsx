@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import NewsCard from '../components/NewsCard';
+import Home from '../components/Home';
 // import news from '../news';
 import axios from 'axios';
 
@@ -20,7 +21,8 @@ const HomeScreen = () => {
 
   return (
     <>
-      <h1>Latest News</h1>
+      <Home/>
+      <h1 className='text-center'>Latest News</h1>
       <Row>
         {news.map((article)=>(
           <NewsCard key={article._id} article={article} />
