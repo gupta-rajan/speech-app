@@ -9,6 +9,7 @@ import facultyRoutes from './routes/facultyRoutes.js'
 import newsRoutes from './routes/newsRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
 import positionRoutes from './routes/positionRoutes.js';
+import eventRoutes from './routes/eventRoutes.js';
 import Request from './models/request.js';
 
 const port = process.env.PORT || 5000;
@@ -69,6 +70,7 @@ app.use('/api/people/faculty',facultyRoutes);
 app.use('/api/people/students',studentRoutes);
 app.use('/api/projects',projectRoutes);
 app.use('/api/positions',positionRoutes);
+app.use('/api/events',eventRoutes);
 
 const __dirname = path.resolve();
 

@@ -33,7 +33,7 @@ const Header = () => {
                         <LinkContainer to='/positions'>
                             <Nav.Link>POSITIONS</Nav.Link>
                         </LinkContainer>
-                        <LinkContainer to='/positions'>
+                        <LinkContainer to='/events'>
                             <Nav.Link>EVENTS</Nav.Link>
                         </LinkContainer>
                     </Nav>
