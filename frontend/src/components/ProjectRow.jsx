@@ -10,7 +10,7 @@ const ProjectRow = ({ project }) => {
   return (
     <div className="border-bottom py-3">
       <div onClick={toggleExpand} style={{ cursor: 'pointer' }}>
-        <strong>{project.title}</strong>
+        <h6 className='mt-3'>{project.title}</h6>
       </div>
       {expanded && (
         <div className="mt-3">

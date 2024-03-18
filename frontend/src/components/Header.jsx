@@ -1,7 +1,7 @@
 import React from 'react'
 import {Navbar, Nav, Container,NavDropdown} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
         <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
             <Container>
                 <LinkContainer to='/'>
-                <Navbar.Brand><img src={logo} alt='SITAR' />
+                <Navbar.Brand><img src={logo} alt='SITAR' className='mx-2'/>
                     SITAR Group
                 </Navbar.Brand>
                 </LinkContainer>
@@ -26,6 +26,7 @@ const Header = () => {
                         <NavDropdown title="PEOPLE" id="people-dropdown">
                             <LinkContainer to="/people/faculty"><NavDropdown.Item>FACULTY</NavDropdown.Item></LinkContainer>
                             <LinkContainer to="/people/students"><NavDropdown.Item>STUDENTS</NavDropdown.Item></LinkContainer>
+                            <LinkContainer to="/people/alumni"><NavDropdown.Item>ALUMNI</NavDropdown.Item></LinkContainer>
                         </NavDropdown>
                         <LinkContainer to='/news'>
                             <Nav.Link>NEWS</Nav.Link>

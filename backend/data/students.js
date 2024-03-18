@@ -119,6 +119,44 @@ const students = [
     alumniPosition: 'Post Doctorate Researcher, University of Eastern Finland',
     publications: 'https://drive.google.com/open?id=1qBew3k_wXxaKVjyX_Q5WaYDH7mYZvmPi',
   },
+  {
+    name: 'Rachit Verma',
+    image: '/images/students/rachit.png', 
+    email: 'cs23dp001@iitdh.ac.in',
+    rollNumber: 'CS23DP001',
+    position: 'PhD',
+    areasOfInterest: 'Natural Language Processing, Transformers, Information Retrieval, Federated Learning',
+    thesisTitle: 'Not yet finalised',
+    description: 'Not yet finalised',
+    scholarLink: 'https://scholar.google.com/citations?user=PK8wQ4cAAAAJ&hl=en&oi=ao',
+    linkedin: 'https://www.linkedin.com/in/rachitverma23/',
+    alumni: 'No',
+    alumniPosition: 'NA',
+    publications: 'I only have conference publications. The titles can be obtained from my Google Scholar page. https://drive.google.com/open?id=1JAKMHCcKrKX0TIOIejMc5922Jeydwsgz'
+  },
+  {
+    name: 'Chandan R',
+    image: '/images/students/chandan.png',
+    email: 'ee23dp002@iitdh.ac.in',
+    rollNumber: 'EE23DP002',
+    position: 'PhD',
+    areasOfInterest: 'Deep Learning, Audio Visual Question Answering (AVQA)',
+    thesisTitle: 'Deep Learning-Based Multimodal Learning Framework for Audio-Visual Question Answering (AVQA)',
+    description: `In our everyday lives, we are constantly surrounded by visual and auditory stimuli, and humans perceive their environment by simultaneously processing and combining these inputs. Natural scene videos, commonly used to record and depict reality, convey important event details through visual and auditory channels. As a result, audio-visual learning has become a significant focus within the multimedia research community over the past decade. One notable aspect of this field is the Audio-Visual Question Answering (AVQA) task, which involves answering questions about complex audio-visual scenes and has attracted considerable attention from researchers due to its value and difficulty.
+  
+  The three major contributions I focus on during my research are as follows:
+  
+  1. Designing novel deep model compression techniques developed to train lightweight multimodal learning frameworks for the AVQA task. The primary focus will be on exploring the domain of knowledge distillation (KD) technique, with the intention of crafting a unique KD loss function. This function is intended to streamline the process of distilling knowledge from a complex multimodal learning framework to a more lightweight multimodal framework.
+  
+  2. Downsizing the large AVQA dataset into a smaller version, ensuring that the same multimodal learning framework maintains similar accuracy for the AVQA task when trained on both datasets. Downsizing a large AVQA dataset would considerably reduce the training time of a multimodal learning framework. In pursuit of this goal, I aim to investigate the development of dataset distillation techniques tailored explicitly for the AVQA task.
+  
+  3. Bridging the gap between computer vision and speech communities for the AVQA task. Humans frequently communicate through spontaneous speech in various settings like meetings, lectures, and online conversations, conveying rich information. In this context, I propose utilizing audio-based questions instead of text questions while training a multimodal learning framework for the AVQA task. This approach could enhance learning and establish meaningful relationships between modalities, including audio and video.`,
+    scholarLink: 'https://scholar.google.com/citations?hl=en&user=3L1tXdQAAAAJ',
+    linkedin: 'https://www.linkedin.com/in/chandan-r-124648a1',
+    alumni: 'No',
+    alumniPosition: 'NA',
+    publications: 'https://drive.google.com/open?id=1xsojYAiFETQuJzSoz_yq4H3RZ71nlHOa'
+  },
 ];
   
 export default students;

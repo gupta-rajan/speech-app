@@ -28,7 +28,7 @@ const projectData = [
       principalInvestigator: 'Prof. S. R. Mahadeva Prasanna'
     },
     {
-      title: 'Project D',
+      title: 'Coming Soon',
       status: 'Completed',
       description: 'Short description for Project D',
       sponsoredBy: 'Company D',

@@ -1,5 +1,56 @@
 const faculty = [
   {
+    name: 'Prof. S. R. Mahadeva Prasanna',
+    image: '/images/faculty/mahadeva-prasanna.png',
+    email: 'prasanna@iitdh.ac.in',
+    bio: `Professor, Dept. of Electrical, Electronics and Communication Engineering, Dean (Faculty Welfare)`,
+    areaOfInterest: 'Speech and Handwriting Processing, Applications of Signal Processing and Pattern Recognition, Applications of Artificial Intelligence, Machine Learning and Deep Learning',
+    personalWeb: 'https://sites.google.com/iitdh.ac.in/prasanna/home',
+    linkedin: 'https://www.linkedin.com/in/mahadeva-prasanna-1b238b1a4/',
+    scholarLink: 'https://scholar.google.co.in/citations?user=gakbTtAAAAAJ&hl=en',
+    department: 'EECE',
+    officeAddress: 'Academic Block I (Engineering Block), Room No. 616',
+    labAddress: 'Academic Block I (Engineering Block), Room No. 329',
+    phdStudents: ['Jagabandhu Mishra', 'Lalaram Arya', 'Tonmoy Rajkhowa'],
+    msStudents: ['Sougata Mukherji', 'Rishith Sadashiv T N', 'Kumar Kaustubh'],
+    mtechStudents: ['Lokesh Kumar'],
+    publications: 'https://scholar.google.co.in/citations?user=gakbTtAAAAAJ&hl=en'
+  }, 
+  {
+    name: 'Dr. Vandana Bharti',
+    image: '/images/faculty/vandana-bharti.png',
+    email: 'vandana@iitdh.ac.in',
+    bio: `Dr. Vandana Bharti holds a Ph.D. in Computer Science and Engineering from the esteemed Indian Institute of Technology (BHU), Varanasi, India. As an Assistant Professor in the Department of Computer Science and Engineering at Indian Institute of Technology Dharwad, she is actively shaping the academic landscape. Driven by a commitment to technological advancement, her research spans various domains, with a particular emphasis on machine learning, deep learning, evolutionary multiobjective optimization, generative AI, and computer vision. Dr. Bharti boasts a robust publication record, featuring contributions to top peer-reviewed journals, and conferences, underscoring her impactful presence in the academic and technological spheres. Her multidisciplinary expertise reflects a dedication to pushing the boundaries of technology, making her a valuable contributor to the field.`,
+    areaOfInterest: 'Machine Learning, Deep Learning, Generative AI, Computer Vision, Evolutionary Multiobjective Optimization, Quantum-Inspired Optimization',
+    personalWeb: 'https://sites.google.com/iitdh.ac.in/vandana',
+    linkedin: 'https://www.linkedin.com/in/vandana-bharti/',
+    scholarLink: 'https://scholar.google.com/citations?user=F5Ogae4AAAAJ&hl=en',
+    department: 'CSE',
+    officeAddress: 'A1-406, Engineering Block, IIT Dharwad',
+    labAddress: 'Machine Intelligence and Data Science Lab, Room no 511',
+    publications: 'https://sites.google.com/iitdh.ac.in/vandana/publications?authuser=0'
+  },
+  {
+    name: 'Achyut Mani Tripathi',
+    image: '/images/faculty/achyut-mani-tripathi.png',
+    email: 't.achyut@iitdh.ac.in',
+    bio: `I am Achyut Mani Tripathi, currently an Assistant Professor in the Computer Science & Engineering Department 
+    at Indian Institute of Technology Dharwad (IIT-Dh) in Karnataka, India. I completed my Ph.D. in 2021 from the 
+    Computer Science & Engineering Department at Indian Institute of Technology Guwahati (IIT-Guwahati) in Assam, India.`,
+    areaOfInterest: 'Deep Learning for Environmental Sound Classification, Adversarial Attacks, Knowledge Distillation, Multimodal Learning, Audio-Visual Scene Classification (AVSC), Audio-Visual Question Answering (AVQA), Audio Visual Source Localization(AVSL), Audio-Visual Segmentation (AVS), Continual Learning for Audio Classification and Predictive Maintenance',
+    personalWeb: 'https://achyutmani.github.io/',
+    linkedin: 'https://www.linkedin.com/in/achyut-mani-tripathi-1487b92a3/',
+    scholarLink: 'https://scholar.google.co.in/citations?user=i0reLQMAAAAJ&hl=en',
+    department: 'CSE',
+    officeAddress: 'Engineeering Block (A1)-129',
+    labAddress: '624',
+    phdStudents: [],
+    msStudents: [],
+    mtechStudents: [],
+    btechStudents: [],
+    publications: "5"
+  },
+  {
     name: 'Dr. Jivnesh Sandhan',
     image: '/images/faculty/jivnesh.png',
     email: 'jivnesh@iitdh.ac.in',
@@ -77,27 +128,7 @@ const faculty = [
     labAddress: 'Yet to be decided',
     phdStudents: ['Sankalp Nagaonkar'],
     msStudents: ['Rashmi Singh', 'Shivam Kumar']
-  },
-  {
-    name: 'Achyut Mani Tripathi',
-    image: '/images/faculty/achyut-mani-tripathi.png',
-    email: 't.achyut@iitdh.ac.in',
-    bio: `I am Achyut Mani Tripathi, currently an Assistant Professor in the Computer Science & Engineering Department 
-    at Indian Institute of Technology Dharwad (IIT-Dh) in Karnataka, India. I completed my Ph.D. in 2021 from the 
-    Computer Science & Engineering Department at Indian Institute of Technology Guwahati (IIT-Guwahati) in Assam, India.`,
-    areaOfInterest: 'Deep Learning for Environmental Sound Classification, Adversarial Attacks, Knowledge Distillation, Multimodal Learning, Audio-Visual Scene Classification (AVSC), Audio-Visual Question Answering (AVQA), Audio Visual Source Localization(AVSL), Audio-Visual Segmentation (AVS), Continual Learning for Audio Classification and Predictive Maintenance',
-    personalWeb: 'https://achyutmani.github.io/',
-    linkedin: 'https://www.linkedin.com/in/achyut-mani-tripathi-1487b92a3/',
-    scholarLink: 'https://scholar.google.co.in/citations?user=i0reLQMAAAAJ&hl=en',
-    department: 'CSE',
-    officeAddress: 'Engineeering Block (A1)-129',
-    labAddress: '624',
-    phdStudents: [],
-    msStudents: [],
-    mtechStudents: [],
-    btechStudents: [],
-    publications: "5"
-  }  
+  }, 
 ];
   
 export default faculty;  

@@ -8,7 +8,7 @@ const NewsCard = ({ article }) => {
   const datePart = date.toISOString().split('T')[0];
 
   return (
-    <Card>
+    <Card className='m-1'>
       <Card.Body>
         <Link to={article.link}>
           <Card.Title>{article.headline}</Card.Title>
