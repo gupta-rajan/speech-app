@@ -6,11 +6,14 @@ import Student from '../components/Student';
 const StudentsScreen = () => {
   const [students, setStudents] = useState([]);
   const [filter, setFilter] = useState('All'); // Default filter: All students
+  const [showStudents, setShowStudents] = useState([]);
 
   useEffect(() => {
     const fetchStudents = async () => {
       const { data } = await axios.get('/api/people/students');
-      setStudents(data.filter(student => student.alumni === 'No'));
+      const studentsData = data.filter(student => student.alumni === 'No');
+      setStudents(studentsData);
+      setShowStudents(studentsData);
     };
 
     fetchStudents();
@@ -19,12 +22,10 @@ const StudentsScreen = () => {
   const handleFilter = async (filterType) => {
     setFilter(filterType);
     if (filterType === 'All') {
-      const { data } = await axios.get('/api/people/students');
-      setStudents(data.filter(student => student.alumni === 'No'));
+      setShowStudents(students);
     } else {
       // Filter students based on position
-      const { data } = await axios.get('/api/people/students');
-      setStudents(data.filter(student => student.position === filterType && student.alumni === 'No'));
+      setShowStudents(students.filter(student => student.position === filterType && student.alumni === 'No'));
     }
   };
 
@@ -38,33 +39,33 @@ const StudentsScreen = () => {
             className="mx-2"
             onClick={() => handleFilter('All')}
           >
-            All Students
+            Students
           </Button>
           <Button
             variant={filter === 'PhD' ? 'primary' : 'light'}
             className="mx-2"
             onClick={() => handleFilter('PhD')}
           >
-            PhD
+           PhD Students
           </Button>
           <Button
             variant={filter === 'MS' ? 'primary' : 'light'}
             className="mx-2"
             onClick={() => handleFilter('MS')}
           >
-            MS
+            MS Students
           </Button>
           <Button
             variant={filter === 'MTech' ? 'primary' : 'light'}
             className="mx-2"
             onClick={() => handleFilter('MTech')}
           >
-            MTech
+            MTech Students
           </Button>
         </Col>
       </Row>
       <Row className="mb-4">
-        {students.map(student => (
+        {showStudents.map(student => (
           <Col key={student._id} xs={12}>
             <Student student={student} />
           </Col>
