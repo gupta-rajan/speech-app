@@ -35,29 +35,24 @@ app.use(async (req, res, next) => {
 
         // Check if the number of entries exceeds 10
         const count = await Request.countDocuments();
-        if (count >= 10) {
+        if (count >= 100) {
             // If the limit is reached, delete the oldest entries to maintain only 10 entries
             const oldestRequests = await Request.find().sort({ requestTime: 1 }).limit(count - 9);
             await Request.deleteMany({ _id: { $in: oldestRequests.map(req => req._id) } });
         }
 
         // Check if a request from this IP address and MAC address already exists
-        const existingRequest = await Request.findOne({ ipAddress, macAddress });
+        // const existingRequest = await Request.findOne({ ipAddress, macAddress });
 
-        if (existingRequest) {
-            // If a request from this IP address already exists, update its time of visit
-            existingRequest.requestTime = requestTime;
-            await existingRequest.save();
-        } else {
-            // Calculate response time in milliseconds
-            res.on('finish', async () => {
-                const end = Date.now(); // Record end time
-                const responseTime = end - start;
+    
+        // Calculate response time in milliseconds
+        res.on('finish', async () => {
+            const end = Date.now(); // Record end time
+            const responseTime = end - start;
 
-                // Save request data with response time to MongoDB
-                await Request.create({ ipAddress, macAddress, deviceType, requestTime, responseTime });
-            });
-        }
+            // Save request data with response time to MongoDB
+            await Request.create({ ipAddress, macAddress, deviceType, requestTime, responseTime });
+        });
     } catch (error) {
         console.error('Error saving request data to MongoDB:', error);
     }
