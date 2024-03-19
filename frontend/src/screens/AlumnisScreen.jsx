@@ -32,24 +32,24 @@ const AlumnisScreen = () => {
     <>
       <h1 className="my-4 text-center">Alumni</h1>
       <Row className="mb-4">
-        <Col xs={12} className="text-center">
+        <Col xs={12} className="d-flex justify-content-center">
           <Button
             variant={filter === 'All' ? 'primary' : 'light'}
-            className="mx-2"
+            className="flex-grow-1 mx-1"
             onClick={() => handleFilter('All')}
           >
             Past Students
           </Button>
           <Button
             variant={filter === 'PhD' ? 'primary' : 'light'}
-            className="mx-2"
+            className="flex-grow-1 mx-1"
             onClick={() => handleFilter('PhD')}
           >
             Past PhD Students
           </Button>
           <Button
             variant={filter === 'MS' ? 'primary' : 'light'}
-            className="mx-2"
+            className="flex-grow-1 mx-1"
             onClick={() => handleFilter('MS')}
           >
             Past MS Students

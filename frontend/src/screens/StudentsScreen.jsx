@@ -33,31 +33,31 @@ const StudentsScreen = () => {
     <>
       <h1 className="my-4 text-center">Students</h1>
       <Row className="mb-4">
-        <Col xs={12} className="text-center">
+        <Col xs={12} className="d-flex justify-content-center">
           <Button
             variant={filter === 'All' ? 'primary' : 'light'}
-            className="mx-2"
+            className="flex-grow-1 mx-1"
             onClick={() => handleFilter('All')}
           >
             Students
           </Button>
           <Button
             variant={filter === 'PhD' ? 'primary' : 'light'}
-            className="mx-2"
+            className="flex-grow-1 mx-1"
             onClick={() => handleFilter('PhD')}
           >
            PhD Students
           </Button>
           <Button
             variant={filter === 'MS' ? 'primary' : 'light'}
-            className="mx-2"
+            className="flex-grow-1 mx-1"
             onClick={() => handleFilter('MS')}
           >
             MS Students
           </Button>
           <Button
             variant={filter === 'MTech' ? 'primary' : 'light'}
-            className="mx-2"
+            className="flex-grow-1 mx-1"
             onClick={() => handleFilter('MTech')}
           >
             MTech Students
