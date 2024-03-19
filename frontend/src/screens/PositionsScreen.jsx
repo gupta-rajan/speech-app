@@ -20,8 +20,8 @@ const PositionsScreen = () => {
     <Container>
       <h1 className="my-4 text-center">Positions</h1>
       <Row>
-        {positions.map((position, index) => (
-          <Col key={index} md={12} lg={12}>
+        {positions.map((position) => (
+          <Col key={position._id} md={12} lg={12}>
             <PositionCard position={position} />
           </Col>
         ))}
