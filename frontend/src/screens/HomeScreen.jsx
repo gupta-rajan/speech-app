@@ -4,24 +4,25 @@ import NewsCard from '../components/NewsCard';
 import Home from '../components/Home';
 import axios from 'axios';
 import HomeFaculty from '../components/HomeFaculty';
+import HomeResearch from '../components/HomeResearch';
 
 const HomeScreen = () => {
   const [news, setNews] = useState([]);
   const [faculty, setFaculty] = useState([]);
+  const [research, setResearch] = useState([]);
 
   useEffect(() => {
-    const fetchNews = async () => {
-      const { data } = await axios.get('/api/news');
-      setNews(data);
-    };
+    const fetchData = async () => {
+      const newsResponse = await axios.get('/api/news');
+      setNews(newsResponse.data);
 
-    const fetchFaculty = async () => {
-      const { data } = await axios.get('/api/people/faculty');
-      setFaculty(data);
-    };
+      const facultyResponse = await axios.get('/api/people/faculty');
+      setFaculty(facultyResponse.data);
 
-    fetchNews();
-    fetchFaculty();
+      const researchResponse = await axios.get('/api/research'); // Fetch research data
+      setResearch(researchResponse.data);
+    };
+    fetchData();
   }, []);
 
   return (
@@ -57,6 +58,17 @@ const HomeScreen = () => {
             <Col xs={12} md={6} className="text-center">
               <img src="/images/home/SITARflowchart.png" alt="SITAR Group" className="img-fluid" />
             </Col>
+          </Row>
+        </div>
+         {/* Display HomeResearch component with research data */}
+         <div className="my-3 p-3 rounded border">
+          <h1 className="my-4 text-center">Research Areas</h1>
+          <Row xs={1} md={2} lg={3} className="g-4">
+            {research.map((researchItem) => (
+              <Col key={researchItem._id}>
+                <HomeResearch research={researchItem} />
+              </Col>
+            ))}
           </Row>
         </div>
       </Col>

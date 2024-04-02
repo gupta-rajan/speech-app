@@ -1,9 +1,25 @@
-import React from 'react'
+import React,  { useState, useEffect }  from 'react'
 import {Navbar, Nav, Container,NavDropdown} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import logo from '../assets/logo.png';
+import axios from 'axios';
 
 const Header = () => {
+
+    const [researchData, setResearchData] = useState([]);
+
+    useEffect(() => {
+      const fetchResearchData = async () => {
+        try {
+          const { data } = await axios.get('/api/research');
+          setResearchData(data);
+        } catch (error) {
+          console.error('Error fetching research data:', error);
+        }
+      };
+      fetchResearchData();
+    }, []);
+
   return (
     <header>
         <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
@@ -23,6 +39,13 @@ const Header = () => {
                         <LinkContainer to='/projects'>
                             <Nav.Link>PROJECTS</Nav.Link>
                         </LinkContainer>
+                        <NavDropdown title="RESEARCH" id="research-dropdown">
+                            {researchData.map((research) => (
+                            <LinkContainer key={research._id} to={`/research/${research._id}`}>
+                                <NavDropdown.Item>{research.title}</NavDropdown.Item>
+                            </LinkContainer>
+                            ))}
+                        </NavDropdown>
                         <NavDropdown title="PEOPLE" id="people-dropdown">
                             <LinkContainer to="/people/faculty"><NavDropdown.Item>FACULTY</NavDropdown.Item></LinkContainer>
                             <LinkContainer to="/people/students"><NavDropdown.Item>STUDENTS</NavDropdown.Item></LinkContainer>

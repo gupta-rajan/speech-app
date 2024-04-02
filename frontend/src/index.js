@@ -19,6 +19,7 @@ import ProjectsScreen from './screens/ProjectsScreen';
 import PositionsScreen from './screens/PositionsScreen';
 import EventsScreen from './screens/EventsScreen';
 import AlumnisScreen from './screens/AlumnisScreen';
+import ResearchScreen from './screens/ResearchScreen';
 
 // implementing react router
 const router = createBrowserRouter(
@@ -32,6 +33,7 @@ const router = createBrowserRouter(
       <Route path='/news' element={<NewsScreen/>}/>
       <Route path='/positions' element={<PositionsScreen/>} />
       <Route path='/events' element={<EventsScreen/>} />
+      <Route path='/research/:id' element={<ResearchScreen/>}/>
     </Route>
   )
 )

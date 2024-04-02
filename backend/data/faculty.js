@@ -31,6 +31,24 @@ const faculty = [
     publications: 'https://sites.google.com/iitdh.ac.in/vandana/publications?authuser=0'
   },
   {
+    name: "Prof. Rajesh M. Hegde",
+    image: "/images/faculty/rajesh-m-hegde.png",
+    email: "rmhegde@iitdh.ac.in",
+    bio: "Experienced Professor with a demonstrated history of working in the higher education industry. Skilled in Research and Development (R&D), Mathematical Modeling, Data Analysis, Algorithms, and Teaching. Strong education professional with a Ph.D focused in Computer Science Engg. from Indian Institute of Technology, Madras.",
+    areaOfInterest: "Machine Learning, AI, future wireless networks, pervasive/mobile communication, WSN, IoT, speech/audio processing for ASR and VR, and multimodal information fusion.",
+    personalWeb: "https://rajeshmhegde.com/",
+    linkedin: "https://www.linkedin.com/in/rajeshmhegde",
+    scholarLink: "https://iitk.irins.org/profile/53494",
+    department: "EECE",
+    officeAddress: "A1",
+    labAddress: "-",
+    phdStudents: [],
+    msStudents: ["Chandan R"],
+    mtechStudents: [],
+    btechStudents: [],
+    publications: "https://iitk.irins.org/profile/53494"
+  },  
+  {
     name: 'Achyut Mani Tripathi',
     image: '/images/faculty/achyut-mani-tripathi.png',
     email: 't.achyut@iitdh.ac.in',
