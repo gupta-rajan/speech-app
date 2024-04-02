@@ -44,7 +44,7 @@ const HomeScreen = () => {
       <Col xs={12}>
         <div className="my-3 p-3 rounded border">
           <h1 className="my-4 text-center">SITAR Associated Faculty</h1>
-          <Row xs={2} sm={2} md={4} lg={5} className="g-4">
+          <Row xs={1} sm={1} md={4} lg={5} className="g-4">
             {faculty.map((facultyMember) => (
               <Col key={facultyMember._id}>
                 <HomeFaculty faculty={facultyMember} />
