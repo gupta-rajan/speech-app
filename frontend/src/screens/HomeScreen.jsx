@@ -5,7 +5,7 @@ import Home from '../components/Home';
 import axios from 'axios';
 import HomeFaculty from '../components/HomeFaculty';
 import HomeResearch from '../components/HomeResearch';
-// import TwitterFeed from '../components/TwitterFeed'; 
+import TwitterFeed from '../components/TwitterFeed'; 
 
 const HomeScreen = () => {
   const [news, setNews] = useState([]);
@@ -34,7 +34,7 @@ const HomeScreen = () => {
       </Col>
       {/* Right 1/3 part of the screen */}
       <Col xs={12} lg={4}>
-        {/* <TwitterFeed screenName="iitdhrwd" /> */}
+        <TwitterFeed screenName="iitdhrwd" />
         <div className="my-3 p-3 rounded border">
           <h1 className='text-center'>Latest News</h1>
           {news.map((article) => (
