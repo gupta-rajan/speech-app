@@ -17,6 +17,24 @@ const faculty = [
     publications: 'https://scholar.google.co.in/citations?user=gakbTtAAAAAJ&hl=en'
   }, 
   {
+    name: 'Dr. Dileep A. D.',
+    image: '/images/faculty/dileep-ad.png',
+    email: 'addileep@iitdh.ac.in',
+    bio: `Dr. Dileep A. D. is presently working as an Associate Professor in the Department of Computer Science and Engineering at Indian Institute of Technology Dharwad (IIT Dharwad), Karnataka (Since Dec 2023). He is also serving as head of the CSE department at IIT Dharwad. Prior to this he was working in the position of Assistant Professor and later as Associate Professor at School of Computing and Electrical Engineering, IIT Mandi during Aug. 2013 to Dec. 2023. Dr. Dileep has a PhD and MTech degrees awarded by the Department of Computer Science and Engineering at IIT Madras in the year 2013 and 2006 respectively. He completed his BE in Computer Science and Engineering from Rural Engineering College, Bhalki affiliated to Gulbarga University in the year 2000. During the year 2001 to 2004, he worked as lecturer in the Department of Information Science at NMAM Institute of Technology Nitte, Karnataka. His research interests include applied machine learning and deep learning, speech technology, spoken language identification and diarization, computer vision, machine learning for telecom and cloud networks.`,
+    areaOfInterest: 'Applied machine learning and deep learning, Speech technology, Computer vision, Machine learning for telecom and cloud networks',
+    personalWeb: 'https://faculty.iitmandi.ac.in/~addileep/',
+    linkedin: 'NA',
+    scholarLink: 'https://scholar.google.co.in/citations?user=fqQk1gcAAAAJ&hl=en',
+    department: 'CSE',
+    officeAddress: 'A1-230, IIT Dharwad Campus, Chikkamalligawad Village, Dharwad',
+    labAddress: 'A1-511',
+    phdStudents: [],
+    msStudents: [],
+    mtechStudents: [],
+    btechStudents: [],
+    publications: 'https://drive.google.com/drive/folders/10aVnwols6nZpjfO9-r-qv8MyzHgXfU3Y?usp=drive_link'
+  },
+  {
     name: 'Dr. Vandana Bharti',
     image: '/images/faculty/vandana-bharti.png',
     email: 'vandana@iitdh.ac.in',
@@ -52,8 +70,8 @@ const faculty = [
     name: 'Achyut Mani Tripathi',
     image: '/images/faculty/achyut-mani-tripathi.png',
     email: 't.achyut@iitdh.ac.in',
-    bio: `I am Achyut Mani Tripathi, currently an Assistant Professor in the Computer Science & Engineering Department 
-    at Indian Institute of Technology Dharwad (IIT-Dh) in Karnataka, India. I completed my Ph.D. in 2021 from the 
+    bio: `Prof. Achyut Mani Tripathi is an Assistant Professor in the Computer Science & Engineering Department 
+    at Indian Institute of Technology Dharwad (IIT-Dh) in Karnataka, India. He completed his Ph.D. in 2021 from the 
     Computer Science & Engineering Department at Indian Institute of Technology Guwahati (IIT-Guwahati) in Assam, India.`,
     areaOfInterest: 'Deep Learning for Environmental Sound Classification, Adversarial Attacks, Knowledge Distillation, Multimodal Learning, Audio-Visual Scene Classification (AVSC), Audio-Visual Question Answering (AVQA), Audio Visual Source Localization(AVSL), Audio-Visual Segmentation (AVS), Continual Learning for Audio Classification and Predictive Maintenance',
     personalWeb: 'https://achyutmani.github.io/',

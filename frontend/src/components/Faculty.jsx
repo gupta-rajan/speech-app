@@ -11,24 +11,27 @@ const FacultyCard = ({ faculty }) => {
   };
 
   return (
-    <Card className="my-3 p-3 rounded">
+    <Card id={faculty._id} className="my-3 p-3 rounded">
       <Row>
         <Col md={4} xs={12} className="text-center mb-3 mb-md-0 d-flex flex-column align-items-center">
           <div style={{ maxWidth: '300px', margin: 'auto' }}>
             <Card.Img src={faculty.image} variant="top" className="img-fluid" style={{ margin: 'auto' }} />
             <div className="mt-3">
-              <Link to={`mailto:${faculty.email}`} target="_blank" rel="noopener noreferrer" className='mx-2'>
+              {faculty.email!=='NA' && (<Link to={`mailto:${faculty.email}`} target="_blank" rel="noopener noreferrer" className='mx-2'>
                 <FaEnvelope/>
               </Link>
-              <Link to={faculty.personalWeb} target="_blank" rel="noopener noreferrer" className='mx-2'>
+              )}
+              {faculty.personalWeb!=='NA'&& (<Link to={faculty.personalWeb} target="_blank" rel="noopener noreferrer" className='mx-2'>
                 <FaGlobe/>
-              </Link>
-              <Link to={faculty.linkedin} target="_blank" rel="noopener noreferrer" className='mx-2'>
+              </Link>)}
+              {faculty.linkedin!=='NA' && (<Link to={faculty.linkedin} target="_blank" rel="noopener noreferrer" className='mx-2'>
                 <FaLinkedin/>
               </Link>
-              <Link to={faculty.scholarLink} target="_blank" rel="noopener noreferrer" className='mx-2'>
+              )}
+              {faculty.scholarLink!=='NA' && (<Link to={faculty.scholarLink} target="_blank" rel="noopener noreferrer" className='mx-2'>
                 <FaGraduationCap/>
               </Link>
+              )}
             </div>
           </div>
         </Col>

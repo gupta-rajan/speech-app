@@ -6,18 +6,19 @@ const researchSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  imagePath: {
-    type: String,
-    required: true
-  },
-  content: {
-    type: [
-      {
-        type: mongoose.Schema.Types.Mixed // Allow mixed type for nested arrays
-      }
-    ],
-    required: true
-  }
+  images: [{
+    imagePath: {
+      type: String,
+    },
+    content: {
+      type: [
+        {
+          type: mongoose.Schema.Types.Mixed // Allow mixed type for nested arrays
+        }
+      ],
+      required: true
+    }
+  }]
 });
 
 const Research = mongoose.model('Research', researchSchema);
