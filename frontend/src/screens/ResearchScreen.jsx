@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import { useGetResearchByIdQuery } from '../slices/researchApiSlice';
 import Research from '../components/Research';
+import Loader from '../components/Loader';
+import Message from '../components/Message';
 
 const ResearchScreen = () => {
-  const { id } = useParams(); // Extract ID from URL
-  const [research, setResearch] = useState([]); // State to hold research data
+  const { id } = useParams(); // Get the research ID from the URL
 
-  useEffect(() => {
-    const fetchResearchData = async () => {
-        const { data } = await axios.get(`/api/research/${id}`); // Fetch data from backend
-        setResearch(data); // Set fetched data to state
-    };
-
-    fetchResearchData(); // Call fetchResearchData function
-  }, [id]); // Dependency array to re-fetch data when ID changes
+  // Use the Redux query hook to fetch research data by ID
+  const { data: research, isLoading, error } = useGetResearchByIdQuery(id);
 
   return (
     <div>
-      {research && <Research research={research} />} {/* Render Research component with fetched data */}
+      {isLoading? (
+        <Loader />
+      ): error? (<Message variant='danger'>{error?.data?.message || error.error}</Message>):
+      (
+        research && <Research research={research} /> // Display research data if available
+      )}
     </div>
   );
 };
