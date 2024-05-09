@@ -9,6 +9,7 @@ import projectData from "./data/projects.js";
 import positions from "./data/positions.js";
 import events from "./data/events.js";
 import research from "./data/research.js";
+import users from "./data/users.js";
 
 import News from "./models/newsModel.js";
 import Student from "./models/studentsModel.js";
@@ -17,6 +18,7 @@ import Project from "./models/projectsModel.js";
 import Position from "./models/positionsModel.js";
 import Event from "./models/eventsModel.js";
 import Research from "./models/researchModel.js";
+import User from "./models/userModel.js";
 
 import connectDB from "./config/db.js";
 
@@ -33,6 +35,7 @@ const importData = async()=>{
         await Position.deleteMany();
         await Event.deleteMany();
         await Research.deleteMany();
+        await User.deleteMany();
 
         //Insert News data
         const createdNews = await News.insertMany(news);
@@ -55,6 +58,9 @@ const importData = async()=>{
         //Insert Research data
         const researchData = await Research.insertMany(research);
 
+        // Insert user data
+        const createdUsers = await User.insertMany(users);
+
         console.log('Data Imported!'.green.inverse);
         process.exit();
     } catch (error) {
@@ -72,6 +78,7 @@ const destroyData = async()=>{
         await Position.deleteMany();
         await Event.deleteMany();
         await Research.deleteMany();
+        await User.deleteMany();
 
         console.log("Data Destroyed!".red.inverse);
         process.exit();

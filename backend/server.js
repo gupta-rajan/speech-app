@@ -1,6 +1,7 @@
 import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 dotenv.config();
 import connectDB from './config/db.js';
 import { notFound,errorHandler } from './middleware/errorMiddleware.js';
@@ -11,6 +12,8 @@ import projectRoutes from './routes/projectRoutes.js';
 import positionRoutes from './routes/positionRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
 import researchRoutes from './routes/researchRoutes.js';
+
+import userRoutes from './routes/userRoutes.js';
 import Request from './models/request.js';
 
 const port = process.env.PORT || 5000;
@@ -18,6 +21,13 @@ const port = process.env.PORT || 5000;
 connectDB(); //Connect to MongoDB
 
 const app= express();
+
+// Body parse middleware
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
+//Cookie parser middleware
+app.use(cookieParser());
 
 app.set('trust proxy', true); // Enable proxy trust
 
@@ -68,6 +78,8 @@ app.use('/api/projects',projectRoutes);
 app.use('/api/positions',positionRoutes);
 app.use('/api/events',eventRoutes);
 app.use('/api/research',researchRoutes);
+
+app.use('/api/users',userRoutes);
 
 const __dirname = path.resolve();
 
