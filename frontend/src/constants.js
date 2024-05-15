@@ -8,3 +8,4 @@ export const RESEARCH_URL = '/api/research';
 export const PROJECTS_URL = '/api/projects';
 
 export const USERS_URL = '/api/users';
+export const UPLOADS_URL = '/api/uploads';

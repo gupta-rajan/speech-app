@@ -1,4 +1,4 @@
-import { RESEARCH_URL } from "../constants"; 
+import { RESEARCH_URL, UPLOADS_URL } from "../constants";
 import { apiSlice } from "./apiSlice"; 
 
 export const researchApiSlice = apiSlice.injectEndpoints({
@@ -8,6 +8,7 @@ export const researchApiSlice = apiSlice.injectEndpoints({
       query: () => ({
         url: RESEARCH_URL, // Base endpoint for all research
       }),
+      providesTags: ['Research'],
       keepUnusedDataFor: 5,
     }),
 
@@ -18,8 +19,37 @@ export const researchApiSlice = apiSlice.injectEndpoints({
       }),
       keepUnusedDataFor: 5,
     }),
+    createResearch: builder.mutation({
+      query: ()=>({
+          url: RESEARCH_URL,
+          method: 'POST',
+      }),
+      invalidatesTags: ['Research'],
+    }),
+    updateResearch: builder.mutation({
+        query:(data)=>({
+            url: `${RESEARCH_URL}/${data.researchId}`, // Make sure to use data.researchId
+            method: 'PUT',
+            body: data,
+        }),
+        invalidatesTags: ['Research'],
+    }),
+    uploadResearchImage: builder.mutation({
+        query:(data)=>({
+            url: `${UPLOADS_URL}`,
+            method: 'POST',
+            body: data,
+        }),
+        invalidatesTags: ['Research'],
+    }),
+    deleteResearch: builder.mutation({
+        query:(researchId)=>({
+            url: `${RESEARCH_URL}/${researchId}`,
+            method: 'DELETE',
+        }),
+    }),
   }),
 });
 
 // Export hooks for use in components
-export const { useGetAllResearchQuery, useGetResearchByIdQuery } = researchApiSlice;
+export const { useGetAllResearchQuery,useCreateResearchMutation , useUpdateResearchMutation, useGetResearchByIdQuery, useUploadResearchImageMutation, useDeleteResearchMutation } = researchApiSlice;

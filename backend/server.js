@@ -15,6 +15,7 @@ import researchRoutes from './routes/researchRoutes.js';
 
 import userRoutes from './routes/userRoutes.js';
 import Request from './models/request.js';
+import uploadRoutes from './routes/uploadRoutes.js';
 
 const port = process.env.PORT || 5000;
 
@@ -80,8 +81,7 @@ app.use('/api/events',eventRoutes);
 app.use('/api/research',researchRoutes);
 
 app.use('/api/users',userRoutes);
-
-const __dirname = path.resolve();
+app.use('/api/uploads',uploadRoutes);
 
 if(process.env.NODE_ENV==='production'){
     //use static folder
@@ -95,7 +95,10 @@ if(process.env.NODE_ENV==='production'){
     app.get('/',(req,res)=>{
         res.send('API is running');
     });
-}
+};
+
+const __dirname = path.resolve(); //Set __dirname to current directory
+app.use('/uploads',express.static(path.join(__dirname,'/uploads')));
 
 app.use(notFound);
 app.use(errorHandler);

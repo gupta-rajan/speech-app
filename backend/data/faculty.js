@@ -1,4 +1,17 @@
 const faculty = [
+  {name: "Sample Faculty",
+      image: "/images/sample.jpg",
+      email: "sample@example.com",
+      bio: "Sample Bio",
+      areaOfInterest: "Sample Interest",
+      department: "Sample Department",
+      officeAddress: "Sample Office",
+      labAddress: "Sample Lab",
+      phdStudents: [],
+      msStudents: [],
+      mtechStudents: [],
+      btechStudents: [],
+      publications: "",},
   {
     name: 'Prof. S. R. Mahadeva Prasanna',
     image: '/images/faculty/mahadeva-prasanna.png',
