@@ -50,8 +50,7 @@ const updateEvent = asyncHandler(async (req, res) => {
         event.website = website || event.website;
         event.dates = dates || event.dates;
 
-        console.log("inside event controller");
-        const updatedEvent = await event.save()
+        const updatedEvent = await event.save();
         res.json(updatedEvent);
     } else {
         res.status(404);

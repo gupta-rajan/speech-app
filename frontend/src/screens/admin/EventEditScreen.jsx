@@ -10,13 +10,12 @@ import { useGetEventByIdQuery, useUpdateEventMutation } from '../../slices/event
 const EventEditScreen = () => {
   const navigate = useNavigate();
   const { id: eventId } = useParams(); // Get the event ID from the URL
- 
+
   // State to manage form fields
-  const [title, setTitle] = useState('');
-  const [date, setDate] = useState('');
-  const [location, setLocation] = useState('');
-  const [image, setImage] = useState('');
+  const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [website, setWebsite] = useState('');
+  const [dates, setDates] = useState('');
 
   // Fetch event data
   const { data: event, isLoading, error } = useGetEventByIdQuery(eventId);
@@ -25,11 +24,10 @@ const EventEditScreen = () => {
   useEffect(() => {
     if (event) {
       // Initialize form fields with existing data
-      setTitle(event.title);
-      setDate(event.date);
-      setLocation(event.location);
-      setImage(event.image || '');
-      setDescription(event.description || '');
+      setName(event.name);
+      setDescription(event.description);
+      setWebsite(event.website || '');
+      setDates(event.dates);
     }
   }, [event]);
 
@@ -38,11 +36,10 @@ const EventEditScreen = () => {
 
     const updatedEvent = {
       eventId,
-      title,
-      date,
-      location,
-      image,
+      name,
       description,
+      website,
+      dates,
     };
 
     const result = await updateEvent({ id: eventId, ...updatedEvent });
@@ -68,33 +65,13 @@ const EventEditScreen = () => {
           <Message variant="danger">{error?.data?.message || error.message}</Message>
         ) : (
           <Form onSubmit={submitHandler}>
-            <Form.Group controlId="title" className="my-3">
-              <Form.Label>Title</Form.Label>
+            <Form.Group controlId="name" className="my-3">
+              <Form.Label>Name</Form.Label>
               <Form.Control
                 type='text'
-                placeholder="Enter title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="date" className="my-3">
-              <Form.Label>Date</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="location" className="my-3">
-              <Form.Label>Location</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter location"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
+                placeholder="Enter name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </Form.Group>
 
@@ -106,6 +83,26 @@ const EventEditScreen = () => {
                 placeholder="Enter description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="website" className="my-3">
+              <Form.Label>Website</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder="Enter website"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="dates" className="my-3">
+              <Form.Label>Dates</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder="Enter dates"
+                value={dates}
+                onChange={(e) => setDates(e.target.value)}
               />
             </Form.Group>
 

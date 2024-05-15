@@ -31,12 +31,16 @@ import FacultyListScreen from './screens/admin/FacultyListScreen';
 import StudentListScreen from './screens/admin/StudentListScreen';
 import ResearchListScreen from './screens/admin/ResearchListScreen';
 import ProjectListScreen from './screens/admin/ProjectListScreen';
+import PositionListScreen from './screens/admin/PositionListScreen';
+import UserListScreen from './screens/admin/UserListScreen';
 // import PositionListScreen from './screens/admin/PositionListScreen';
 import FacultyEditScreen from './screens/admin/FacultyEditScreen';
 import StudentEditScreen from './screens/admin/StudentEditScreen';
 import ResearchEditScreen from './screens/admin/ResearchEditScreen';
 import EventEditScreen from './screens/admin/EventEditScreen';
 import ProjectEditScreen from './screens/admin/ProjectEditScreen';
+import PositionEditScreen from './screens/admin/PositionEditScreen';
+import UserEditScreen from './screens/admin/UserEditScreen';
 
 // implementing react router
 const router = createBrowserRouter(
@@ -60,12 +64,16 @@ const router = createBrowserRouter(
         <Route path='/admin/studentList' element={<StudentListScreen/>}/>
         <Route path='/admin/researchList' element={<ResearchListScreen/>}/>
         <Route path='/admin/projectList' element={<ProjectListScreen/>}/>
+        <Route path='/admin/positionList' element={<PositionListScreen/>}/>
+        <Route path='/admin/userList' element={<UserListScreen/>}/>
 
         <Route path='/admin/faculty/:id/edit' element={<FacultyEditScreen/>}/>
         <Route path='/admin/student/:id/edit' element={<StudentEditScreen/>}/>
         <Route path='/admin/research/:id/edit' element={<ResearchEditScreen/>}/>
         <Route path='/admin/event/:id/edit' element={<EventEditScreen/>}/>
         <Route path='/admin/project/:id/edit' element={<ProjectEditScreen/>}/>
+        <Route path='/admin/position/:id/edit' element={<PositionEditScreen/>}/>
+        <Route path='/admin/user/:id/edit' element={<UserEditScreen/>}/>
       </Route>
     </Route>
   )
