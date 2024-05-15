@@ -50,7 +50,7 @@ const StudentListScreen = () => {
       </Row>
       {loadingCreate && <Loader />}
       {loadingDelete && <Loader />}
-      {isLoading ? (
+      {isLoading? (
         <Loader />
       ) : error ? (
         <Message variant='danger'>{error}</Message>

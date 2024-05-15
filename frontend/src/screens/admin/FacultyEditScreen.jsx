@@ -113,7 +113,7 @@ const FacultyEditScreen = () => {
     </Link>
     <FormContainer>
       <h1>Edit Faculty</h1>
-      {isLoading || loadingUpdate ? (
+      {isLoading || loadingUpdate || loadingUpload ? (
         <Loader />
       ) : error ? (
         <Message variant="danger">{error?.data?.message || error.message}</Message>
