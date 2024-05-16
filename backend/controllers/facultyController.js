@@ -69,9 +69,7 @@ const updateFaculty = asyncHandler(async (req, res) => {
         publications 
     } = req.body;
 
-    console.log('up faculty memeber');
     const facultyMember = await Faculty.findById(req.params.id);
-    console.log("down faculty member");
 
     if (facultyMember) {
         facultyMember.name = name;
