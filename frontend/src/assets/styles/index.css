@@ -23,6 +23,74 @@ table th {
   background: rgba(0, 0, 0, 0.5);
 }
 
+.carousel-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr; /* Default to single column */
+}
+
+@media (min-width: 768px) {
+  .carousel-container {
+      grid-template-columns: 1fr 1fr; /* Two columns for medium and larger screens */
+  }
+}
+
+.carousel-custom {
+  width: 100%;
+  max-width: 600px;
+  height: 450px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.carousel-image-wrapper {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container */
+  object-position: center; /* Center the image */
+}
+
+.carousel-control-prev, .carousel-control-next {
+  filter: brightness(0) invert(1);
+}
+
+.carousel-indicators {
+  bottom: 10px;
+}
+
+.carousel-indicators li {
+  background-color: #fff;
+}
+
+.carousel-title {
+  height: 50px; /* Fixed height for the title */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  z-index: 10;
+  overflow: hidden;
+}
+
+
 .icon {
   margin-right: 10px;
 }

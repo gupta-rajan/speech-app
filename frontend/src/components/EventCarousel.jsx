@@ -14,18 +14,27 @@ const EventCarousel = () => {
     ) : (
         <>
             {events.map((event) => (
-                <div key={event._id} className='mb-4'>
-                    <h2>{event.name}</h2>
-                    <Carousel pause='hover' className='bg-primary'>
-                        {event.images.map((image, index) => (
-                            <Carousel.Item key={index}>
-                                <Link to={`/events/${event._id}`}>
-                                    <Image src={image} alt={`${event.name} Image ${index}`} fluid />
-                                </Link>
-                            </Carousel.Item>
-                        ))}
-                    </Carousel>
-                </div>
+                event.images && event.images.length > 0 && (
+                    <div key={event._id} className='mb-4'>
+                        <h2 className='text-center'>{event.name}</h2>
+                        <Carousel pause='hover' className='bg-primary carousel-custom'>
+                            {event.images.map((image, index) => (
+                                <Carousel.Item key={index}>
+                                    <Link to={event.website}>
+                                        <div className='carousel-image-wrapper'>
+                                            <Image src={image} alt={`${event.name} Image ${index}`} className='carousel-image' />
+                                        </div>
+                                        <Carousel.Caption className='carousel-caption'>
+                                            <h2 className='text-white text-right'>
+                                                {event.name}
+                                            </h2>
+                                        </Carousel.Caption>
+                                    </Link>
+                                </Carousel.Item>
+                            ))}
+                        </Carousel>
+                    </div>
+                )
             ))}
         </>
     );
