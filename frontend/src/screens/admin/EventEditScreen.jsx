@@ -1,33 +1,33 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Row, Col, Image } from 'react-bootstrap';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import FormContainer from '../../components/FormContainer';
 import { toast } from 'react-toastify';
-import { useGetEventByIdQuery, useUpdateEventMutation } from '../../slices/eventsApiSlice';
+import { useGetEventByIdQuery, useUpdateEventMutation, useUploadEventImageMutation } from '../../slices/eventsApiSlice';
 
 const EventEditScreen = () => {
   const navigate = useNavigate();
-  const { id: eventId } = useParams(); // Get the event ID from the URL
+  const { id: eventId } = useParams();
 
-  // State to manage form fields
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [website, setWebsite] = useState('');
   const [dates, setDates] = useState('');
+  const [images, setImages] = useState([]);
 
-  // Fetch event data
   const { data: event, isLoading, error } = useGetEventByIdQuery(eventId);
   const [updateEvent, { isLoading: loadingUpdate }] = useUpdateEventMutation();
+  const [uploadEventImage, { isLoading: loadingUpload }] = useUploadEventImageMutation();
 
   useEffect(() => {
     if (event) {
-      // Initialize form fields with existing data
       setName(event.name);
       setDescription(event.description);
       setWebsite(event.website || '');
       setDates(event.dates);
+      setImages(event.images || []);
     }
   }, [event]);
 
@@ -40,6 +40,7 @@ const EventEditScreen = () => {
       description,
       website,
       dates,
+      images,
     };
 
     const result = await updateEvent({ id: eventId, ...updatedEvent });
@@ -48,8 +49,28 @@ const EventEditScreen = () => {
       toast.error(result.error);
     } else {
       toast.success('Event updated successfully!');
-      navigate('/admin/eventList'); // Redirect back to event list
+      navigate('/admin/eventList');
     }
+  };
+
+  const uploadFileHandler = async (e) => {
+    const files = Array.from(e.target.files);
+    const formData = new FormData();
+    files.forEach((file) => {
+      formData.append('images', file); // Use 'images' to match backend
+    });
+
+    try {
+      const res = await uploadEventImage(formData).unwrap();
+      toast.success('Images uploaded successfully');
+      setImages((prevImages) => [...prevImages, ...res.images]);
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
+
+  const removeImageHandler = (imageUrl) => {
+    setImages(images.filter((img) => img !== imageUrl));
   };
 
   return (
@@ -59,7 +80,7 @@ const EventEditScreen = () => {
       </Link>
       <FormContainer>
         <h1>Edit Event</h1>
-        {isLoading || loadingUpdate ? (
+        {isLoading || loadingUpdate || loadingUpload ? (
           <Loader />
         ) : error ? (
           <Message variant="danger">{error?.data?.message || error.message}</Message>
@@ -105,6 +126,26 @@ const EventEditScreen = () => {
                 onChange={(e) => setDates(e.target.value)}
               />
             </Form.Group>
+
+            <Form.Group controlId="images" className='my-2'>
+              <Form.Label>Upload Images</Form.Label>
+              <Form.Control type='file' multiple onChange={uploadFileHandler} />
+            </Form.Group>
+
+            <Row>
+              {images.map((img) => (
+                <Col key={img} xs={12} md={3} className='my-2'>
+                  <Image src={img} alt='event' fluid rounded />
+                  <Button
+                    variant='danger'
+                    className='btn-sm mt-2'
+                    onClick={() => removeImageHandler(img)}
+                  >
+                    Remove
+                  </Button>
+                </Col>
+              ))}
+            </Row>
 
             <Button type="submit" variant="primary" className="mt-2">
               Update

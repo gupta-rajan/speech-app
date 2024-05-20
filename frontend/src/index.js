@@ -24,6 +24,7 @@ import AlumnisScreen from './screens/AlumnisScreen';
 import ResearchScreen from './screens/ResearchScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import GalleryScreen from './screens/GalleryScreen';
 
 import AdminRoute from './components/AdminRoute';
 import EventListScreen from './screens/admin/EventListScreen';
@@ -57,6 +58,7 @@ const router = createBrowserRouter(
       <Route path='/research/:id' element={<ResearchScreen/>}/>
       <Route path='/login' element={<LoginScreen/>}/>
       <Route path='/register' element={<RegisterScreen/>}/>
+      <Route path='/gallery' element={<GalleryScreen/>}/>
 
       <Route path='' element={<AdminRoute />}>
         <Route path='/admin/eventList' element={<EventListScreen/>}/>

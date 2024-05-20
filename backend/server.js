@@ -16,6 +16,7 @@ import researchRoutes from './routes/researchRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import Request from './models/request.js';
 import uploadRoutes from './routes/uploadRoutes.js';
+import uploadEventRoutes from './routes/uploadEventRoutes.js';
 
 const port = process.env.PORT || 5000;
 
@@ -82,6 +83,7 @@ app.use('/api/research',researchRoutes);
 
 app.use('/api/users',userRoutes);
 app.use('/api/uploads',uploadRoutes);
+app.use('/api/event-uploads', uploadEventRoutes);
 
 if(process.env.NODE_ENV==='production'){
     //use static folder

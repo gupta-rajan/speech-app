@@ -1,5 +1,4 @@
-// eventsApiSlice.js
-import { EVENTS_URL } from "../constants";
+import { EVENTS_URL, EVENT_UPLOADS_URL } from "../constants"; // Adjust the import as needed
 import { apiSlice } from "./apiSlice";
 
 export const eventsApiSlice = apiSlice.injectEndpoints({
@@ -19,10 +18,9 @@ export const eventsApiSlice = apiSlice.injectEndpoints({
             keepUnusedDataFor: 5,
         }),
         createEvent: builder.mutation({
-            query: (newEvent) => ({
+            query: () => ({
                 url: EVENTS_URL,
                 method: 'POST',
-                body: newEvent,
             }),
             invalidatesTags: ['Event'],
         }),
@@ -41,6 +39,14 @@ export const eventsApiSlice = apiSlice.injectEndpoints({
             }),
             invalidatesTags: ['Event'],
         }),
+        uploadEventImage: builder.mutation({
+            query: (data) => ({
+                url: `${EVENT_UPLOADS_URL}/event-images`, // Updated URL for multiple images
+                method: 'POST',
+                body: data,
+            }),
+            invalidatesTags: ['Event'],
+        }),
     }),
 });
 
@@ -50,4 +56,5 @@ export const {
     useCreateEventMutation,
     useUpdateEventMutation,
     useDeleteEventMutation,
+    useUploadEventImageMutation,
 } = eventsApiSlice;

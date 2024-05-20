@@ -13,12 +13,16 @@ const getEvents = asyncHandler(async (req, res) => {
 // @route POST /api/events
 // @access Private/Admin
 const createEvent = asyncHandler(async (req, res) => {
+    console.log("create event");
     const newEvent = new Event({
         name: "Sample Event",
         description: "Sample Description",
+        images: [] ,
         website: "http://example.com",
         dates: "Sample Dates"
     });
+
+    console.log("inside createEvent");
     const createdEvent = await newEvent.save();
     res.status(201).json(createdEvent);
 });
@@ -40,17 +44,21 @@ const getEventById = asyncHandler(async (req, res) => {
 // @route PUT /api/events/:id
 // @access Private/Admin
 const updateEvent = asyncHandler(async (req, res) => {
-    const { name, description, website, dates } = req.body;
+    const { name, description,images,  website, dates } = req.body;
 
     const event = await Event.findById(req.params.id);
 
     if (event) {
         event.name = name || event.name;
+        event.images = images || [];
         event.description = description || event.description;
         event.website = website || event.website;
         event.dates = dates || event.dates;
 
+        // console.log("inside update event");
+        
         const updatedEvent = await event.save();
+        // console.log(updatedEvent);
         res.json(updatedEvent);
     } else {
         res.status(404);

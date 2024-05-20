@@ -9,3 +9,4 @@ export const PROJECTS_URL = '/api/projects';
 
 export const USERS_URL = '/api/users';
 export const UPLOADS_URL = '/api/uploads';
+export const EVENT_UPLOADS_URL = '/api/event-uploads';

@@ -79,6 +79,9 @@ const Header = () => {
                         <LinkContainer to='/events'>
                             <Nav.Link>EVENTS</Nav.Link>
                         </LinkContainer>
+                        <LinkContainer to='/gallery'>
+                            <Nav.Link>GALLERY</Nav.Link>
+                        </LinkContainer>
                         {userInfo? (
                             <NavDropdown title={userInfo.name} id='username'>
                             <NavDropdown.Item onClick={logoutHandler}>
