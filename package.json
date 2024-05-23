@@ -4,6 +4,9 @@
   "description": "Speech lab app built with MERN stack",
   "type": "module",
   "main": "server.js",
+  "overrides": {
+    "@svgr/webpack": "$@svgr/webpack"
+  },
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
