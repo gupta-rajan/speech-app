@@ -3,17 +3,17 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import { fileURLToPath } from 'url';
+
 dotenv.config();
 import connectDB from './config/db.js';
-import { notFound,errorHandler } from './middleware/errorMiddleware.js';
-import studentRoutes from './routes/studentRoutes.js'
-import facultyRoutes from './routes/facultyRoutes.js'
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+import studentRoutes from './routes/studentRoutes.js';
+import facultyRoutes from './routes/facultyRoutes.js';
 import newsRoutes from './routes/newsRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
 import positionRoutes from './routes/positionRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
 import researchRoutes from './routes/researchRoutes.js';
-
 import userRoutes from './routes/userRoutes.js';
 import Request from './models/request.js';
 import uploadRoutes from './routes/uploadRoutes.js';
@@ -21,15 +21,15 @@ import uploadEventRoutes from './routes/uploadEventRoutes.js';
 
 const port = process.env.PORT || 5000;
 
-connectDB(); //Connect to MongoDB
+connectDB(); // Connect to MongoDB
 
-const app= express();
+const app = express();
 
 // Body parse middleware
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 
-//Cookie parser middleware
+// Cookie parser middleware
 app.use(cookieParser());
 
 app.set('trust proxy', true); // Enable proxy trust
@@ -47,18 +47,14 @@ app.use(async (req, res, next) => {
         // Get MAC address from request headers or other sources
         const macAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
-        // Check if the number of entries exceeds 10
+        // Check if the number of entries exceeds 100
         const count = await Request.countDocuments();
         if (count >= 100) {
-            // If the limit is reached, delete the oldest entries to maintain only 10 entries
-            const oldestRequests = await Request.find().sort({ requestTime: 1 }).limit(count - 9);
+            // If the limit is reached, delete the oldest entries to maintain only 100 entries
+            const oldestRequests = await Request.find().sort({ requestTime: 1 }).limit(count - 99);
             await Request.deleteMany({ _id: { $in: oldestRequests.map(req => req._id) } });
         }
 
-        // Check if a request from this IP address and MAC address already exists
-        // const existingRequest = await Request.findOne({ ipAddress, macAddress });
-
-    
         // Calculate response time in milliseconds
         res.on('finish', async () => {
             const end = Date.now(); // Record end time
@@ -74,39 +70,38 @@ app.use(async (req, res, next) => {
     next();
 });
 
-app.use('/api/news',newsRoutes);
-app.use('/api/people/faculty',facultyRoutes);
-app.use('/api/people/students',studentRoutes);
-app.use('/api/projects',projectRoutes);
-app.use('/api/positions',positionRoutes);
-app.use('/api/events',eventRoutes);
-app.use('/api/research',researchRoutes);
-
-app.use('/api/users',userRoutes);
-app.use('/api/uploads',uploadRoutes);
+app.use('/api/news', newsRoutes);
+app.use('/api/people/faculty', facultyRoutes);
+app.use('/api/people/students', studentRoutes);
+app.use('/api/projects', projectRoutes);
+app.use('/api/positions', positionRoutes);
+app.use('/api/events', eventRoutes);
+app.use('/api/research', researchRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/uploads', uploadRoutes);
 app.use('/api/event-uploads', uploadEventRoutes);
 
+// Define __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-if(process.env.NODE_ENV==='production'){
-    //use static folder
-    app.use(express.static(path.join(__dirname,'/frontend/build')));
+if (process.env.NODE_ENV === 'production') {
+    // Use static folder
+    app.use(express.static(path.join(__dirname, '../frontend/build')));
 
-    //any route that is not api will be redirected to index.html
-    app.get('*',(req,res)=>{
-        res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
+    // Any route that is not API will be redirected to index.html
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
     });
-}else{
-    app.get('/',(req,res)=>{
+} else {
+    app.get('/', (req, res) => {
         res.send('API is running');
     });
-};
+}
 
-// const __dirname = path.resolve(); //Set __dirname to current directory
-app.use('/uploads',express.static(path.join(__dirname,'/uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 app.use(notFound);
 app.use(errorHandler);
 
-app.listen(port,()=>console.log(`Server is running on port ${port}`));
+app.listen(port, () => console.log(`Server is running on port ${port}`));
