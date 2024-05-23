@@ -2,6 +2,7 @@ import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
+import { fileURLToPath } from 'url';
 dotenv.config();
 import connectDB from './config/db.js';
 import { notFound,errorHandler } from './middleware/errorMiddleware.js';
@@ -85,6 +86,9 @@ app.use('/api/users',userRoutes);
 app.use('/api/uploads',uploadRoutes);
 app.use('/api/event-uploads', uploadEventRoutes);
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 if(process.env.NODE_ENV==='production'){
     //use static folder
     app.use(express.static(path.join(__dirname,'/frontend/build')));
@@ -99,7 +103,7 @@ if(process.env.NODE_ENV==='production'){
     });
 };
 
-const __dirname = path.resolve(); //Set __dirname to current directory
+// const __dirname = path.resolve(); //Set __dirname to current directory
 app.use('/uploads',express.static(path.join(__dirname,'/uploads')));
 
 app.use(notFound);
