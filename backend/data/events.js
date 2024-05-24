@@ -3,7 +3,20 @@ const events = [
         name: 'SPECOM-2023',
         description: 'The International Conference on Speech and Computer (SPECOM), 25th (Silver) Jubilee edition',
         website: 'https://iitdh.ac.in/specom-2023/',
-        dates: '29 Nov to 02 Dec, 2023'
+        dates: '29 Nov to 02 Dec, 2023',
+        images: [
+            '/images/events/specom-2023-1.jpg',
+            '/images/events/specom-2023-2.jpg',
+            '/images/events/specom-2023-3.jpg',
+            '/images/events/specom-2023-4.jpg',
+            '/images/events/specom-2023-5.jpg',
+            '/images/events/specom-2023-6.jpg',
+            '/images/events/specom-2023-7.jpg',
+            '/images/events/specom-2023-8.jpg',
+            '/images/events/specom-2023-9.jpg',
+            '/images/events/specom-2023-10.jpg',
+            '/images/events/specom-2023-11.jpg',
+        ]
     },
     {
         name: 'GIAN Course “Speech and Auditory Processing by Humans and Machines”',
