@@ -83,7 +83,7 @@ const Header = () => {
                             <Nav.Link>GALLERY</Nav.Link>
                         </LinkContainer>
                         <NavDropdown title="DEMO" id="demo-dropdown">
-                            <NavDropdown.Item href="/fsd" target="_blank" rel="noopener noreferrer">
+                            <NavDropdown.Item href="http://10.195.250.59/fsd">
                                 FSD
                             </NavDropdown.Item>
                             <NavDropdown.Item href="#">
