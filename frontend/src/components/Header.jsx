@@ -83,15 +83,9 @@ const Header = () => {
                             <Nav.Link>GALLERY</Nav.Link>
                         </LinkContainer>
                         <NavDropdown title="DEMO" id="demo-dropdown">
-                            <NavDropdown.Item href="http://10.195.250.59/fsd">
-                                FSD
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#">
-                                Text to Text
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#">
-                                Speech to Speech
-                            </NavDropdown.Item>
+                            <LinkContainer to="/fsd">
+                                <NavDropdown.Item>FSD</NavDropdown.Item>
+                            </LinkContainer> 
                         </NavDropdown>
                         {userInfo? (
                             <NavDropdown title={userInfo.name} id='username'>
