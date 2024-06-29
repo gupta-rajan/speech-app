@@ -34,8 +34,6 @@ import ResearchListScreen from './screens/admin/ResearchListScreen';
 import ProjectListScreen from './screens/admin/ProjectListScreen';
 import PositionListScreen from './screens/admin/PositionListScreen';
 import UserListScreen from './screens/admin/UserListScreen';
-import FSD from './screens/FSD';
-import NotFound from './screens/NotFound';
 // import PositionListScreen from './screens/admin/PositionListScreen';
 import FacultyEditScreen from './screens/admin/FacultyEditScreen';
 import StudentEditScreen from './screens/admin/StudentEditScreen';
