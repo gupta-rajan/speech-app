@@ -62,9 +62,6 @@ const router = createBrowserRouter(
       <Route path='/register' element={<RegisterScreen/>}/>
       <Route path='/gallery' element={<GalleryScreen/>}/>
 
-      <Route path="/fsd" element={<FSD />} />  {/* Add the FSD route */}
-      <Route path="*" element={<NotFound />} />  {/* Handle other 404s */}
-
       <Route path='' element={<AdminRoute />}>
         <Route path='/admin/eventList' element={<EventListScreen/>}/>
         <Route path='/admin/facultyList' element={<FacultyListScreen/>}/>
