@@ -82,6 +82,17 @@ const Header = () => {
                         <LinkContainer to='/gallery'>
                             <Nav.Link>GALLERY</Nav.Link>
                         </LinkContainer>
+                        <NavDropdown title="DEMO" id="demo-dropdown">
+                            <NavDropdown.Item href="http://localhost:4000" target="_blank" rel="noopener noreferrer">
+                                FSD
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="#">
+                                Text to Text
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="#">
+                                Speech to Speech
+                            </NavDropdown.Item>
+                        </NavDropdown>
                         {userInfo? (
                             <NavDropdown title={userInfo.name} id='username'>
                             <NavDropdown.Item onClick={logoutHandler}>
