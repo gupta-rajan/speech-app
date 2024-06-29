@@ -34,6 +34,8 @@ import ResearchListScreen from './screens/admin/ResearchListScreen';
 import ProjectListScreen from './screens/admin/ProjectListScreen';
 import PositionListScreen from './screens/admin/PositionListScreen';
 import UserListScreen from './screens/admin/UserListScreen';
+import FSD from './screens/FSD';
+import NotFound from './screens/NotFound';
 // import PositionListScreen from './screens/admin/PositionListScreen';
 import FacultyEditScreen from './screens/admin/FacultyEditScreen';
 import StudentEditScreen from './screens/admin/StudentEditScreen';
@@ -59,6 +61,9 @@ const router = createBrowserRouter(
       <Route path='/login' element={<LoginScreen/>}/>
       <Route path='/register' element={<RegisterScreen/>}/>
       <Route path='/gallery' element={<GalleryScreen/>}/>
+
+      <Route path="/fsd" element={<FSD />} />  {/* Add the FSD route */}
+      <Route path="*" element={<NotFound />} />  {/* Handle other 404s */}
 
       <Route path='' element={<AdminRoute />}>
         <Route path='/admin/eventList' element={<EventListScreen/>}/>
