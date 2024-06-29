@@ -1,8 +1,8 @@
-import React , {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 const FSD = () => {
     useEffect(() => {
-        window.location.href = "http://localhost:4000";  // Redirect to the FSD application
+        window.location.href = "http://10.195.250.59:4000";  // Redirect to the FSD application
     }, []);
 
     return (
