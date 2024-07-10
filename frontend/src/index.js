@@ -27,6 +27,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import GalleryScreen from './screens/GalleryScreen';
 import FileUpload from './screens/FileUpload';
 import DemoScreen from './screens/DemoScreen';
+import MachineTranslation from './screens/MachineTranslation';
 
 import AdminRoute from './components/AdminRoute';
 import EventListScreen from './screens/admin/EventListScreen';
@@ -63,6 +64,7 @@ const router = createBrowserRouter(
       <Route path='/gallery' element={<GalleryScreen/>}/>
       <Route path='/demo' element={<DemoScreen/>}/>
       <Route path='/demo/fsd' element={<FileUpload />}/>
+      <Route path='/demo/mt' element={<MachineTranslation/>}/>
 
       <Route path='' element={<AdminRoute />}>
         <Route path='/admin/eventList' element={<EventListScreen/>}/>
