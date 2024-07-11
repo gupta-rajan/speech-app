@@ -32,7 +32,7 @@ const Student = ({ student }) => {
         <Col md={8} xs={12}>
           <Card.Body className="d-flex flex-column justify-content-between h-100">
             <Card.Title>
-              <strong>{student.name}</strong>
+              <strong className='project-title'>{student.name}</strong>
             </Card.Title>
             <Card.Text>
               <strong>Roll Number:</strong> {student.rollNumber}

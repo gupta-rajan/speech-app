@@ -39,7 +39,7 @@ const FacultyCard = ({ faculty }) => {
           <Card.Body className="d-flex flex-column justify-content-between h-100">
             <div>
               <Card.Title>
-                <strong>{faculty.name}</strong>
+                <strong className='project-title'>{faculty.name}</strong>
               </Card.Title>
               <Card.Text>
                 <strong>Department:</strong> {faculty.department}

@@ -7,10 +7,10 @@ const DemoCard = ({ title, path, content }) => {
     <Card className='my-3 p-0 rounded' style={{ height: '100%', minWidth: '100%' }}>
       <Link to={path} style={{ textDecoration: 'none', color: 'inherit' }}>
         <Card.Body className="d-flex flex-column justify-content-between p-0">
-          <div className="p-3 rounded-top text-center" style={{ backgroundColor: '#007bff', color: '#fff', fontSize: '1.5rem' }}>
+          <div className="p-3 rounded-top text-center" style={{ backgroundColor: '#007bff', color: '#fff', fontSize: '2rem' }}>
             <strong className='d-block'>{title}</strong>
           </div>
-          <div className="p-3 text-center" style={{ backgroundColor: '#f9f9f9', fontSize: '1.2rem', flex: 1 }}>
+          <div className="p-3 text-center" style={{ backgroundColor: '#f9f9f9', fontSize: '1.5rem', flex: 1 }}>
             <p>{content}</p>
           </div>
         </Card.Body>

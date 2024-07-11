@@ -36,7 +36,6 @@ const EventCarousel = () => {
             {events.map(event => (
                 event.images && event.images.length > 0 && (
                     <div key={event._id} className='mb-4'>
-                        <h2 className='text-center'>{event.name}</h2>
                         <Carousel pause='hover' className='bg-primary carousel-custom'>
                             {event.images.map((image, index) => (
                                 <Carousel.Item key={index}>

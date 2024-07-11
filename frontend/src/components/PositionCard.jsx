@@ -8,7 +8,7 @@ const Position = ({ position }) => {
     <Card className="my-3 p-3 rounded">
       <Card.Body>
         <Card.Title>
-          <strong>{position.title}</strong>
+          <strong className='project-title'>{position.title}</strong>
         </Card.Title>
         <Card.Text>
           <strong>Number of Positions:</strong> {position.numberOfPositions}

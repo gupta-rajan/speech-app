@@ -14,7 +14,7 @@ const NewsScreen = () => {
         <Loader/>
       ): error? (<Message variant='danger'>{error?.data?.message || error.error}</Message>):
       (<>
-        <h1>News</h1>
+        <h1 className="text-center mb-4">News</h1>
         <Row>
         {news.map((article)=>(
             <NewsCard key={article._id} article={article}/>
