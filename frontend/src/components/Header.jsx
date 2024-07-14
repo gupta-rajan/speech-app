@@ -44,7 +44,7 @@ const Header = () => {
         <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
             <Container>
                 <LinkContainer to='/'>
-                <Navbar.Brand><img src={logo} alt='SITAR' className='mx-2'/>
+                <Navbar.Brand><img src={logo} alt='SITAR' style={{backgroundColor: "#f9f9f9",borderRadius:"2px"}} className='mx-2'/>
                     SITAR Group
                 </Navbar.Brand>
                 </LinkContainer>
