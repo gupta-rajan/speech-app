@@ -29,7 +29,7 @@ const MachineTranslationScreen = () => {
     try {
       const modelName = languagePairToModelName[`${sourceLanguage}-${targetLanguage}`];
       const response = await axios.post(
-        'http://localhost:8000/api/translate/',
+        'http://10.195.250.59:9000/api/translate/',
         {
           source_language: sourceLanguage,
           target_language: targetLanguage,
