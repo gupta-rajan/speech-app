@@ -9,15 +9,32 @@ const MachineTranslationScreen = () => {
   const [translatedText, setTranslatedText] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const languagePairToModelName = {
+    'english-hindi': 'English2Hindi',
+    'soliga-english': 'Soliga2English',
+    'english-kannada': 'English2Kannada',
+    'english-kui': 'English2Kui',
+    'english-lambani': 'English2Lambani',
+    'english-mundari': 'English2Mundari',
+    'english-soliga': 'English2Soliga',
+    'hindi-english': 'Hindi2English',
+    'lambani-english': 'Lambani2English',
+    'ori-english': 'Ori2English',
+    
+    // Add more mappings as needed
+  };
+
   const handleTranslation = async () => {
     setLoading(true);
     try {
+      const modelName = languagePairToModelName[`${sourceLanguage}-${targetLanguage}`];
       const response = await axios.post(
-        'http://10.195.250.59:9000/api/translate/',
+        'http://localhost:8000/api/translate/',
         {
           source_language: sourceLanguage,
           target_language: targetLanguage,
-          source_text: inputText
+          source_text: inputText,
+          model_name: modelName
         }
       );
       setTranslatedText(response.data.translated_text);
@@ -35,10 +52,10 @@ const MachineTranslationScreen = () => {
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4" style={{ padding: '10px' ,color: "#007bff"}}>Machine Translation</h1>
+      <h1 className="text-center mb-4" style={{ padding: '10px', color: "#007bff" }}>Machine Translation</h1>
       <div className="row justify-content-center rounded-lg shadow-lg p-4 bg-white">
         <div className="col-md-6">
-        <h3 className="text-center text-3xl font-bold text-blue-700 mb-6">Let's translate from text to text</h3>
+          <h3 className="text-center text-3xl font-bold text-blue-700 mb-6">Let's translate from text to text</h3>
           <div className="form-group">
             <label htmlFor="sourceLanguage" className="mt-2 mb-1">Source Language:</label>
             <div className="input-group">
@@ -49,11 +66,13 @@ const MachineTranslationScreen = () => {
                 onChange={(e) => setSourceLanguage(e.target.value)}
               >
                 <option value="english">English</option>
-                
+                <option value="hindi">Hindi</option>
+                <option value="lambani">Lambani</option>
+                <option value="ori">Ori</option>
+                <option value="soliga">Soliga</option>
+                {/* Add more options as needed */}
               </select>
-              {/* <div className="input-group-append"> */}
               <span className="input-group-text"><i className="fa fa-chevron-down"></i></span>
-              {/* </div> */}
             </div>
           </div>
           <div className="form-group">
@@ -66,10 +85,15 @@ const MachineTranslationScreen = () => {
                 onChange={(e) => setTargetLanguage(e.target.value)}
               >
                 <option value="hindi">Hindi</option>
+                <option value="kannada">Kannada</option>
+                <option value="kui">Kui</option>
+                <option value="english">English</option>
+                <option value="lambani">Lambani</option>
+                <option value="mundari">Mundari</option>
+                <option value="soliga">Soliga</option>
+                {/* Add more options as needed */}
               </select>
-              {/* <div className="input-group-append"> */}
-                <span className="input-group-text"><i className="fa fa-chevron-down"></i></span>
-              {/* </div> */}
+              <span className="input-group-text"><i className="fa fa-chevron-down"></i></span>
             </div>
           </div>
           <div className="form-group">
@@ -96,7 +120,7 @@ const MachineTranslationScreen = () => {
               className="btn btn-primary m-2"
               onClick={handleClearText}
               disabled={loading || !inputText}
-              style={{ backgroundColor: '#007bff', borderColor: '#007bff', padding: '8px 16px'  }}
+              style={{ backgroundColor: '#007bff', borderColor: '#007bff', padding: '8px 16px' }}
             >
               Clear Text
             </button>
