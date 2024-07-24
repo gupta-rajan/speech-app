@@ -29,7 +29,7 @@ const MachineTranslationScreen = () => {
     try {
       const modelName = languagePairToModelName[`${sourceLanguage}-${targetLanguage}`];
       const response = await axios.post(
-        'https://sitar.iitdh.ac.in/mt/api/translate',
+        'https://sitar.iitdh.ac.in/api/translate',
         {
           source_language: sourceLanguage,
           target_language: targetLanguage,
