@@ -23,7 +23,7 @@ const FileUpload = () => {
       const formData = new FormData();
       formData.append('audio', selectedFile);
       
-      const response = await axios.post('https://sitar.iitdh.ac.in/api/fsd/', formData, {
+      const response = await axios.post('https://sitar.iitdh.ac.in/speech/upload/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
