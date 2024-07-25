@@ -29,7 +29,7 @@ const MachineTranslationScreen = () => {
     try {
       const modelName = languagePairToModelName[`${sourceLanguage}-${targetLanguage}`];
       const response = await axios.post(
-        'https://sitar.iitdh.ac.in/api/translate',
+        'https://sitar.iitdh.ac.in/api/translate/',
         {
           source_language: sourceLanguage,
           target_language: targetLanguage,
@@ -52,62 +52,66 @@ const MachineTranslationScreen = () => {
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4" style={{ padding: '10px', color: "#007bff" }}>Machine Translation</h1>
-      <div className="row justify-content-center rounded-lg shadow-lg p-4 bg-white">
+      <h1 className="text-center mb-4" style={{ color: "#007bff" }}>Machine Translation</h1>
+      <h3 className="text-center mb-4">Let's translate from text to text</h3>
+      <div className="row">
         <div className="col-md-6">
-          <h3 className="text-center text-3xl font-bold text-blue-700 mb-6">Let's translate from text to text</h3>
-          <div className="form-group">
-            <label htmlFor="sourceLanguage" className="mt-2 mb-1">Source Language:</label>
-            <div className="input-group">
-              <select
-                id="sourceLanguage"
-                className="form-control"
-                value={sourceLanguage}
-                onChange={(e) => setSourceLanguage(e.target.value)}
-              >
-                <option value="english">English</option>
-                <option value="hindi">Hindi</option>
-                <option value="lambani">Lambani</option>
-                <option value="ori">Ori</option>
-                <option value="soliga">Soliga</option>
-                {/* Add more options as needed */}
-              </select>
-              <span className="input-group-text"><i className="fa fa-chevron-down"></i></span>
-            </div>
+          <div className="form-group mb-3">
+            <label htmlFor="sourceLanguage" className="form-label">Source Language:</label>
+            <select
+              id="sourceLanguage"
+              className="form-select"
+              value={sourceLanguage}
+              onChange={(e) => setSourceLanguage(e.target.value)}
+            >
+              <option value="english">English</option>
+              <option value="hindi">Hindi</option>
+              <option value="lambani">Lambani</option>
+              <option value="ori">Ori</option>
+              <option value="soliga">Soliga</option>
+              {/* Add more options as needed */}
+            </select>
           </div>
-          <div className="form-group">
-            <label htmlFor="targetLanguage" className="mt-2 mb-1">Target Language:</label>
-            <div className="input-group">
-              <select
-                id="targetLanguage"
-                className="form-control"
-                value={targetLanguage}
-                onChange={(e) => setTargetLanguage(e.target.value)}
-              >
-                <option value="hindi">Hindi</option>
-                <option value="kannada">Kannada</option>
-                <option value="kui">Kui</option>
-                <option value="english">English</option>
-                <option value="lambani">Lambani</option>
-                <option value="mundari">Mundari</option>
-                <option value="soliga">Soliga</option>
-                {/* Add more options as needed */}
-              </select>
-              <span className="input-group-text"><i className="fa fa-chevron-down"></i></span>
-            </div>
-          </div>
-          <div className="form-group">
-            <label htmlFor="inputText" className="mt-2 mb-1">Input Text:</label>
+          <div className="form-group mb-3">
+            <label htmlFor="inputText" className="form-label">Input Text:</label>
             <textarea
               id="inputText"
               className="form-control"
-              rows="4"
+              rows="6"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              style={{ marginBottom: '10px' }}
             ></textarea>
           </div>
-          <div className="text-center m-1">
+        </div>
+        <div className="col-md-6">
+          <div className="form-group mb-3">
+            <label htmlFor="targetLanguage" className="form-label">Target Language:</label>
+            <select
+              id="targetLanguage"
+              className="form-select"
+              value={targetLanguage}
+              onChange={(e) => setTargetLanguage(e.target.value)}
+            >
+              <option value="hindi">Hindi</option>
+              <option value="kannada">Kannada</option>
+              <option value="kui">Kui</option>
+              <option value="english">English</option>
+              <option value="lambani">Lambani</option>
+              <option value="mundari">Mundari</option>
+              <option value="soliga">Soliga</option>
+              {/* Add more options as needed */}
+            </select>
+          </div>
+          <h5 className="text-center mb-2">Output:</h5>
+          <div className="border rounded p-3" style={{ minHeight: '160px' }}>
+            {translatedText ? (
+              <p className="text-center">{translatedText}</p>
+            ) : (
+              <p className="text-center text-muted">Translation will appear here.</p>
+            )}
+          </div>
+        </div>
+        <div className="text-center mb-3">
             <button
               className="btn btn-primary m-2"
               onClick={handleTranslation}
@@ -125,21 +129,9 @@ const MachineTranslationScreen = () => {
               Clear Text
             </button>
           </div>
-          <div className="mt-3" style={{ border: '1px solid #007bff', borderRadius: '5px', padding: '10px' }}>
-            {translatedText && (
-              <div>
-                <h5 style={{ padding: '5px', textAlign: 'center' }}>Output:</h5>
-                <p style={{ textAlign: 'center' }}>{translatedText}</p>
-              </div>
-            )}
-            {!translatedText && (
-              <p className="text-muted text-center">Translation will appear here.</p>
-            )}
-          </div>
-          <div className="mt-6 text-center">
-            <Link className="btn btn-light my-3" to="/demo">Go Back</Link>
-          </div>
-        </div>
+      </div>
+      <div className="text-center mt-4">
+        <Link className="btn btn-light" to="/demo">Go Back</Link>
       </div>
     </div>
   );
